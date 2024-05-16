@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service Branch {
+	rpc MsgDelivery(BankingRequest) returns (BankingReply) {}
+	rpc MsgUpdate(BankingRequest) returns (BankingReply) {}
+}
+
+message BankingReply {
+	string interface = 1;
+	string result = 2;
+	int32 money = 3;
+	repeated int32 writeset = 4;
+	
+	
+}
+
+message BankingRequest {
+	string interface = 1;
+	int32 money = 2;
+	repeated int32 writeset = 3;
+}
+
+
+
